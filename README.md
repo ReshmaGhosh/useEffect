@@ -28,3 +28,7 @@
 When the user click the Visit map here it should go to a google map page as screenshot below
 
 ![](./screenshots/googleMaps.png)
+
+## Extra tasks
+
+1. display `language` as form below

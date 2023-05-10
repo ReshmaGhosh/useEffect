@@ -1,5 +1,5 @@
 import ProductList from "./components/product/ProductList";
-import CountryList from "./components/country/CountryList";
+//import CountryList from "./components/country/CountryList";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1>Product List</h1>
       <ProductList />
-      <CountryList />
+      {/* <CountryList /> */}
     </div>
   );
 }

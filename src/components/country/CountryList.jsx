@@ -1,42 +1,37 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import CountryItem from "./CountryItem";
+import { v4 as uuidv4 } from "uuid";
 
-// export default function CountryList() {
-//   const [countries, setCountries] = useState([]);
+export default function CountryList() {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-//   useEffect(() => {
-//     const fetchCountries = async () => {
-//       try {
-//         const response = await axios.get("https://restcountries.com/v3.1/all");
-//         const data = response.data.slice(0, 20);
-//         setCountries(data);
-//       } catch (error) {
-//         console.error("Error fetching countries:", error);
-//       }
-//     };
+  const url = "https://restcountries.com/v3.1/all";
+  async function getData() {
+    const response = await axios.get(url);
+    const data = await response.data;
+    setIsLoading(false);
+    setData(data);
+  }
 
-//     fetchCountries();
-//   }, []);
+  useEffect(() => {
+    getData();
+  }, []);
 
-//   return (
-//     <div className="country-list">
-//       {countries.map((country) => (
-//         <div key={country.cca3} className="country">
-//           <img src={country.flags[0]} alt={country.name.common} />
-//           <h3>{country.name}</h3>
-//           <p>Region: {country.region}</p>
-//           <p>
-//             <a
-//               href={`https://maps.google.com?q=${country.name.common}`}
-//               target="_blank"
-//               rel="noreferrer"
-//             >
-//               Visit map here
-//             </a>
-//             <p>Borders: {country.borders?.join(", ") || "No borders"}</p>
-//           </p>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
+  if (isLoading) {
+    return <p>is Loading...</p>;
+  } else {
+    return (
+      <div className="body">
+        <h1>Country List</h1>
+
+        <div className="mapList">
+          {data.map((country, index) => (
+            <CountryItem key={uuidv4()} country={country} index={index} />
+          ))}
+        </div>
+      </div>
+    );
+  }
+}

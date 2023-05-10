@@ -33,32 +33,16 @@
   margin: 0 0 1rem;
 }
 
-.country-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-}
-
 .country {
-  background-color: #f8f8f8;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  padding: 1rem;
+  border: 1px black;
+  border-style: solid;
+  padding-left: 10px;
 }
-
-.country img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.country h3 {
-  margin: 0 0 1rem;
-}
-
-.country p {
-  margin: 0 0 1rem;
+.mapList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 20px;
+  text-align: left;
+  margin-top: 50px;
 }

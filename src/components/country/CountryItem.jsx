@@ -18,7 +18,7 @@ export default function CountryItem({ index, country }) {
             : "no border"}
         </div>
         <div>
-          Languages:{" "}
+          Languages:
           {Object.keys(country.languages).map((language, index) => (
             <li key={index}>{language}</li>
           ))}
